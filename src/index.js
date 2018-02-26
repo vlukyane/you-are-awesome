@@ -3,8 +3,8 @@
 const createEnumerableProperty = () => {};
 const createNotEnumerableProperty = () => {};
 const createProtoMagicObject = () => {
-    var obj = Object.create(prototype); //pass in the prototype object
-    obj.prop = "object name";
+    var obj = Object;//pass in the prototype object
+    obj.__proto__ = obj.prototype;
     return obj;
 };
 
@@ -23,7 +23,17 @@ const incrementor = () => {
 //console.log(incrementor()()());
 
 const asyncIncrementor = () => {};
-const createIncrementer = () => {};
+
+
+
+
+const createIncrementer = () => {
+    var value = 0;
+    return value;
+};
+
+
+
 
 
 // return same argument not earlier than in one second, and not later, than in two
