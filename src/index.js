@@ -15,24 +15,30 @@ Function.prototype.toString = function (){
 };
 const incrementor = () => {
     result ++;
-    console.log(result);
     return incrementor;
 };
 
 
 //console.log(incrementor()()());
-
-const asyncIncrementor = () => {};
+var ans = 1;
+const asyncIncrementor = () => {
+    return new Promise((resolve) =>{
+        resolve (ans++);
+    });
+};
 
 
 
 
 const createIncrementer = () => {
-    var value = 0;
-    return value;
-};
+    var index = 1;
+    function* inc() {
+        while (true)
+            yield index++;
+    }
+    return inc();
 
-
+}
 
 
 
@@ -46,7 +52,11 @@ const returnBackInSecond = (package) => {
         }, 1234);
     });
 };
-const getDeepPropertiesCount = () => {};
+const getDeepPropertiesCount = (obj) => {
+
+    return (JSON.stringify(obj).match(/{/g) || []).length - 1;
+
+};
 const createSerializedObject = () => {
     return null;
 };
