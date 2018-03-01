@@ -1,7 +1,10 @@
 // DO WHATEVER YOU WANT HERE
 
 const createEnumerableProperty = () => {};
-const createNotEnumerableProperty = () => {};
+const createNotEnumerableProperty = (obj) => {
+    Object.defineProperty(Object.prototype, obj, {enumerable: false, value: 'value'})
+    return obj;
+};
 const createProtoMagicObject = () => {
     var obj = Object;//pass in the prototype object
     obj.__proto__ = obj.prototype;
